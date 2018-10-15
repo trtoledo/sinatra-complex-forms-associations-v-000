@@ -6,9 +6,7 @@
    <br></br>
    <label>Choose an existing owner:</label>
    <br></br>
-   <%#binding.pry%>
   <%Owner.all.each do |owner|%>
-  <%#binding.pry%>
     <input type="radio" name="pet[owner_id]" value="<%=owner.id%>" id="<%=owner.id%>" <%='checked' if @pet.owner.id == owner.id %>><%=owner.name%></input>
   <%end%>
   <br></br>
