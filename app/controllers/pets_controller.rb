@@ -19,19 +19,20 @@ class PetsController < ApplicationController
     redirect to "pets/#{@pet.id}"
   end
 
+  get '/pets/:id' do
+    @pet = Pet.find(params[:id])
+    erb :'/pets/show'
+  end
+
   get '/pets/:id/edit' do
     @pet = Pet.find(params[:id])
     @owner = Owner.all
     erb :'/pets/edit'
   end
 
-  get '/pets/:id' do
-    @pet = Pet.find(params[:id])
-    erb :'/pets/show'
-  end
+
 
   post '/pets/:id' do
-
     @pet = Pet.find(params[:id])
     @pet.update(params["pet"])
     if !params["owner"]["name"].empty?
