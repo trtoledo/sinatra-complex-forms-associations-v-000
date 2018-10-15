@@ -30,8 +30,6 @@ class PetsController < ApplicationController
     erb :'/pets/edit'
   end
 
-
-
   post '/pets/:id' do
     @pet = Pet.find(params[:id])
     @pet.update(params["pet"])
